@@ -18,7 +18,7 @@ To get the latest stable version of the Java client library, add this dependency
 <dependency>
   <groupId>technology.semi.weaviate</groupId>
   <artifactId>client</artifactId>
-  <version>1.2.1</version>
+  <version>3.1.1</version>
 </dependency>
 ```
 
