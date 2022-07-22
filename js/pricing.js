@@ -60,7 +60,7 @@
     }
 
     // SLA tier mixin
-    returnObj['priceInt'] = baseFloor[slaTier] * baseMultiplier[slaTier];
+    returnObj['priceInt'] = returnObj['priceInt'] * baseMultiplier[slaTier];
 
     // set price to floor price
     if(returnObj['dimensionsToBuy'] > returnObj['priceInt']){
