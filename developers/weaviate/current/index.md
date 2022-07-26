@@ -22,6 +22,128 @@ toc: true
 
 **Weaviate in detail**: Weaviate is a low-latency vector search engine with out-of-the-box support for different media types (text, images, etc.). It offers Semantic Search, Question-Answer Extraction, Classification, Customizable Models (PyTorch/TensorFlow/Keras), etc. Built from scratch in Go, Weaviate stores both objects and vectors, allowing for combining vector search with structured filtering and the fault-tolerance of a cloud-native database, all accessible through GraphQL, REST, and various programming languages client.
 
+## Try it Now
+You can try out Weaviate with the below demo.
+
+For the purposes of this demo, we've loaded an instance of Weaviate with Articles from multiple news outlets like: New York Times, Vogue, Wired, The Guardian and more.
+
+Type your search query — like *"clothes people wear"* — and press **Search**.
+
+<!-- TODO: refactor to place this demo in it's own file and then include it in the relevant places -->
+<script src="/js/intro-demo-bundle.js"></script>
+<style>
+
+#result-div {
+  max-height: 50vh;
+  overflow: scroll;
+  margin: 10px 0;
+
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 5px;
+  row-gap: 5px;
+}
+
+#result-div .result-item {
+  background-color: #fff;
+  margin: 5px;
+  padding: 5px;
+}
+</style>
+
+
+<div id="search-demo" class="border border-primary border-1">
+  <div class="row">
+    <div class="col-md-9">
+      <input id="searchText" class="form-control" value="clothes people wear" placeholder="search...">
+    </div>
+    <div class="col-md-3">
+      <button id="demo-btn" onclick="onSearch()" class="btn btn-primary">Search</button>
+    </div>
+  </div>
+  <div id="result-div">
+    <div class="result-item">
+      <p class="fw-light">Press serch to see the results</p>
+    </div>
+  </div>
+</div>
+
+
+### The code
+
+Here is the essential code that makes this demo work.
+
+**HTML**
+
+```html
+<div>
+  <input id="searchText" value="clothes people wear" placeholder="search...">
+  <button onclick="onSearch()">Search</button>
+
+  <div id="result-div">
+    <div class="result-item">
+      <p>Press serch to see the results</p>
+    </div>
+  </div>
+</div>
+```
+
+**JavaScript**
+
+```javascript
+// Step 1 – Import the Weaviate js client
+const weaviate = require("weaviate-client");
+const client = weaviate.client({
+  scheme: 'https',
+  host: 'demo.dataset.playground.semi.technology',
+});
+
+// Step 2 - On Search
+onSearch = async function() {
+  const searchText = document.getElementById("searchText").value;
+
+  const articles = await searchWithWeaviate(searchText);
+
+  displayArticles(articles);
+}
+
+// Step 3 - Search Weaviate [concepts]
+const searchWithWeaviate = async (searchText) => {
+  const results = await client.graphql
+  .get()
+  .withClassName('Article')
+  .withFields('title, summary, url')
+  .withNearText({
+    concepts: [searchText],
+    distance: 0.6,
+  })
+  .withLimit(6)
+  .do()
+  
+  return results.data.Get.Article;
+}
+
+// Step 4 - Generate DOM elements with results
+const displayArticles = (articles) => {
+  console.log(JSON.stringify(articles));
+  const div = document.getElementById("result-div");
+
+  let html = "";
+
+  articles.forEach(article => {
+    html += `
+<div class="result-item border border-2">
+  <a href="${article.url}" target="_blank" class="fw-bold">${article.title}</a>
+  <p class="fw-light">${article.summary}</p>
+</div>`
+  });
+
+  div.innerHTML = html;
+}
+```
+
+<!-- ===== The END of the DEMO ===== -->
+
 ## Weaviate helps
 
 1. **Software Engineers** - Who use Weaviate as an ML-first database for their applications.
