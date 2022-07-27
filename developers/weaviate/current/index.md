@@ -25,9 +25,9 @@ toc: true
 ## Try it Now
 You can try out Weaviate with the below demo.
 
-For the purposes of this demo, we've loaded an instance of Weaviate with Articles from multiple news outlets like: New York Times, Vogue, Wired, The Guardian and more.
+In this demo, we have a cloud instance with Weaviate, which is populated with Articles from multiple news outlets like: *New York Times*, *Vogue*, *Wired*, *The Guardian* and more.
 
-Type your search query — like *"clothes people wear"* — and press **Search**.
+This allows you to use semantic search to find articles on topics of interest, like *"clothes people wear"*.
 
 <!-- TODO: refactor to place this demo in it's own file and then include it in the relevant places -->
 <script src="/js/intro-demo-bundle.js"></script>
@@ -51,55 +51,86 @@ Type your search query — like *"clothes people wear"* — and press **Search**
 }
 </style>
 
+<div class="accordion" id="introDemoAccordion">
 
-<div id="search-demo" class="border border-primary border-1">
-  <div class="row">
-    <div class="col-md-9">
-      <input id="searchText" class="form-control" value="clothes people wear" placeholder="search...">
-    </div>
-    <div class="col-md-3">
-      <button id="demo-btn" onclick="onSearch()" class="btn btn-primary">Search</button>
-    </div>
-  </div>
-  <div id="result-div">
-    <div class="result-item">
-      <p class="fw-light">Press serch to see the results</p>
-    </div>
-  </div>
-</div>
+  <!-- Demo Tab: Start -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingDemo">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDemo" aria-expanded="true" aria-controls="collapseDemo">
+        Demo
+      </button>
+    </h2>
+    <div id="collapseDemo" class="accordion-collapse collapse show" aria-labelledby="headingDemo" data-bs-parent="#introDemoAccordion">
+      <div class="accordion-body">
+        <!-- <p>Type your search query — like <i>"clothes people wear"</i> — and press <b>Search</b>.</p> -->
 
-
-### The code
-
-Here is the essential code that makes this demo work.
-
-**HTML**
-
-```html
-<div>
-  <input id="searchText" value="clothes people wear" placeholder="search...">
-  <button onclick="onSearch()">Search</button>
-
-  <div id="result-div">
-    <div class="result-item">
-      <p>Press serch to see the results</p>
+        <div class="row">
+          <div class="col-md-9">
+            <input id="searchText" class="form-control" value="clothes people wear" placeholder="search...">
+          </div>
+          <div class="col-md-3">
+            <button id="demo-btn" onclick="onSearch()" class="btn btn-primary">Search</button>
+          </div>
+        </div>
+        <div id="result-div">
+          <div class="result-item">
+            <p class="fw-light"><b>Type your query</b> and press <b>search</b> to see the results.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-```
+  <!-- Demo Tab: End -->
 
-**JavaScript**
 
-```javascript
-// Step 1 – Import the Weaviate js client
+  <!-- HTML Tab - Start -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingHTML">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHTML" aria-expanded="false" aria-controls="collapseHTML">
+        HTML
+      </button>
+    </h2>
+    <div id="collapseHTML" class="accordion-collapse collapse" aria-labelledby="headingHTML" data-bs-parent="#introDemoAccordion">
+      <div class="accordion-body">
+        <pre><code class="language-html hljs">
+&lt;div>
+  &lt;input id="searchText" value="clothes people wear" placeholder="search...">
+  &lt;button onclick="onSearch()">Search&lt;/button>
+
+  &lt;div id="result-div">
+    &lt;div class="result-item">
+      &lt;p>Press serch to see the results&lt;/p>
+    &lt;/div>
+  &lt;/div>
+&lt;/div>
+        </code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- HTML Tab - End -->
+
+  <!-- JavaScript Tab: Start -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingJS">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseJS" aria-expanded="true" aria-controls="collapseJS">
+        JavaScript
+      </button>
+    </h2>
+    <div id="collapseJS" class="accordion-collapse collapse hide" aria-labelledby="headingJS" data-bs-parent="#introDemoAccordion">
+      <div class="accordion-body">
+        <p>Here is the essential JavaScript code that makes this demo work.</p>
+
+        <pre><code  class="language-javascript hljs">
 const weaviate = require("weaviate-client");
+
+// Step 1 - Connect
 const client = weaviate.client({
   scheme: 'https',
   host: 'demo.dataset.playground.semi.technology',
 });
 
-// Step 2 - On Search
-onSearch = async function() {
+// Step 2 - On Search - call Weaviate and diplay results
+async function onSearch() {
   const searchText = document.getElementById("searchText").value;
 
   const articles = await searchWithWeaviate(searchText);
@@ -107,8 +138,8 @@ onSearch = async function() {
   displayArticles(articles);
 }
 
-// Step 3 - Search Weaviate [concepts]
-const searchWithWeaviate = async (searchText) => {
+// Step 3 - Call Weaviate
+async function searchWithWeaviate(searchText) {
   const results = await client.graphql
   .get()
   .withClassName('Article')
@@ -119,29 +150,16 @@ const searchWithWeaviate = async (searchText) => {
   })
   .withLimit(6)
   .do()
-  
+
   return results.data.Get.Article;
 }
-
-// Step 4 - Generate DOM elements with results
-const displayArticles = (articles) => {
-  console.log(JSON.stringify(articles));
-  const div = document.getElementById("result-div");
-
-  let html = "";
-
-  articles.forEach(article => {
-    html += `
-<div class="result-item border border-2">
-  <a href="${article.url}" target="_blank" class="fw-bold">${article.title}</a>
-  <p class="fw-light">${article.summary}</p>
-</div>`
-  });
-
-  div.innerHTML = html;
-}
-```
-
+        </code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- JavaScript Tab - End -->
+  
+</div>
 <!-- ===== The END of the DEMO ===== -->
 
 ## Weaviate helps
