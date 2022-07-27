@@ -62,8 +62,6 @@ This allows you to use semantic search to find articles on topics of interest, l
     </h2>
     <div id="collapseDemo" class="accordion-collapse collapse show" aria-labelledby="headingDemo" data-bs-parent="#introDemoAccordion">
       <div class="accordion-body">
-        <!-- <p>Type your search query — like <i>"clothes people wear"</i> — and press <b>Search</b>.</p> -->
-
         <div class="row">
           <div class="col-md-9">
             <input id="searchText" class="form-control" value="clothes people wear" placeholder="search...">
@@ -98,9 +96,7 @@ This allows you to use semantic search to find articles on topics of interest, l
   &lt;button onclick="onSearch()">Search&lt;/button>
 
   &lt;div id="result-div">
-    &lt;div class="result-item">
-      &lt;p>Press serch to see the results&lt;/p>
-    &lt;/div>
+    &lt;!-- Results go here -->
   &lt;/div>
 &lt;/div>
         </code></pre>
@@ -119,6 +115,7 @@ This allows you to use semantic search to find articles on topics of interest, l
     <div id="collapseJS" class="accordion-collapse collapse hide" aria-labelledby="headingJS" data-bs-parent="#introDemoAccordion">
       <div class="accordion-body">
         <p>Here is the essential JavaScript code that makes this demo work.</p>
+        <p>The near text search is performed in <b>searchWithWeaviate</b> function</p>
 
         <pre><code  class="language-javascript hljs">
 const weaviate = require("weaviate-client");
@@ -140,14 +137,18 @@ async function onSearch() {
 
 // Step 3 - Call Weaviate
 async function searchWithWeaviate(searchText) {
+  // search in Articles
+  // look for concepts that match the searchText
+  // for each object return title, summary and url
+  // limit the results to 6 objects
   const results = await client.graphql
   .get()
   .withClassName('Article')
-  .withFields('title, summary, url')
   .withNearText({
     concepts: [searchText],
     distance: 0.6,
   })
+  .withFields('title, summary, url')
   .withLimit(6)
   .do()
 
