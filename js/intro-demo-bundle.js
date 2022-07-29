@@ -3,43 +3,42 @@
 const weaviate = require("weaviate-client");
 
 global.onSearch = async function() {
-    const searchText = document.getElementById("searchText").value;
+  const searchText = document.getElementById("searchText").value;
 
-    const articles = await searchWithWeaviate(searchText);
+  const articles = await searchWithWeaviate(searchText);
 
-    displayArticles(articles);
+  displayArticles(articles);
 }
 
 const searchWithWeaviate = async (searchText) => {
-    const results = await client.graphql
-    .get()
-    .withClassName('Article')
-    .withFields('title, summary, url')
-    .withNearText({
-      concepts: [searchText],
-      distance: 0.6,
-    })
-    .withLimit(6)
-    .do()
-    
-    return results.data.Get.Article;
+  const results = await client.graphql
+  .get()
+  .withClassName('Article')
+  .withNearText({
+    concepts: [searchText],
+    distance: 0.6,
+  })
+  .withFields('title, summary, url')
+  .withLimit(6)
+  .do()
+  
+  return results.data.Get.Article;
 }
 
 const displayArticles = (articles) => {
-    console.log(JSON.stringify(articles));
-    const div = document.getElementById("result-div");
+  const div = document.getElementById("result-div");
 
-    let html = "";
+  let html = "";
 
-    articles.forEach(article => {
-        html += `
+  articles.forEach(article => {
+      html += `
 <div class="result-item border border-2">
-    <a href="${article.url}" target="_blank" class="fw-bold">${article.title}</a>
-    <p class="fw-light">${article.summary}</p>
+  <a href="${article.url}" target="_blank" class="fw-bold">${article.title}</a>
+  <p class="fw-light">${article.summary}</p>
 </div>`
-    });
+  });
 
-    div.innerHTML = html;
+  div.innerHTML = html;
 }
 
 const initWeaviate = () => {
