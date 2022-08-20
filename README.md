@@ -116,3 +116,14 @@ Example:
 canonical-url: https://www.forbes.com/sites/forbestechcouncil/2022/06/23/the-ai-first-database-ecosystem/
 canonical-name: Forbes
 ```
+
+## Pricing calculator
+
+The querystring variables should correspond with the input fields in the HTML calculator
+
+Additional:
+
+* `slaTiers` are: `standard`, `enterprise`, `businessCritical`, `hybrid`.
+* `highAvailability` should be `1` or left out.
+
+Example: 'https://us-central1-semi-production.cloudfunctions.net/pricing-calculator?embeddingSize=512&amountOfDataObjs=1000000&queriesPerMonth=1000000&slaTier=standard&highAvailability=0'
