@@ -102,4 +102,5 @@ script:
       cd ..
     fi
   fi
+  bash _build_scripts/slack-release-message.sh
 cache: bundler
