@@ -16,7 +16,7 @@ redirect_from:
 
 Weaviate is completely modularized. The Core of Weaviate, without any modules attached, is a pure vector-native database and search engine.
 
-[![Weaviate modules introduction](/img/weaviate-module-diagram.svg "Weaviate Module Diagram")](/img/weaviate-module-diagram.svg)
+<!-- [![Weaviate modules introduction](/img/weaviate-module-diagram.svg "Weaviate Module Diagram")](/img/weaviate-module-diagram.svg) -->
 
 # Vectorizer Modules
 

@@ -109,14 +109,14 @@ and when helping users. These do not come with any support, but may still be
 helpful. Treat them as insipiration to design your own dashboards which fit
 your uses perfectly:
 
-| Dashboard | Purpose | Preview |
+<!-- | Dashboard | Purpose | Preview |
 | --- | --- | --- |
 | [Importing Data Into Weaviate](https://github.com/semi-technologies/weaviate/blob/master/tools/dev/grafana/dashboards/importing.json) | Visualize speed of import operations (including its components, such as object store, inverted index, and vector index). | ![Importing Data into Weaviate](/img/weaviate-sample-dashboard-importing.png "Importing Data Into Weaviate") |
 | [Object Operations](https://github.com/semi-technologies/weaviate/blob/master/tools/dev/grafana/dashboards/objects.json) | Visualize speed of whole object operations, such as GET, PUT, etc. | ![Objects](/img/weaviate-sample-dashboard-objects.png "Objects") |
 | [Vector Index](https://github.com/semi-technologies/weaviate/blob/master/tools/dev/grafana/dashboards/vectorindex.json) | Visualize the current state, as well as operations on the HNSW vector index | ![Vector Index](/img/weaviate-sample-dashboard-vector.png "Vector Index") |
 | [LSM Stores](https://github.com/semi-technologies/weaviate/blob/master/tools/dev/grafana/dashboards/lsm.json) | Get insights into the internals (including segments) of the various LSM stores within Weaviate. | ![LSM Store](/img/weaviate-sample-dashboard-lsm.png "LSM Store") |
 | [Startup](https://github.com/semi-technologies/weaviate/blob/master/tools/dev/grafana/dashboards/startup.json) | Visualize the startup process, including recovery operations | ![Startup](/img/weaviate-sample-dashboard-startup.png "Vector Index") |
-| [Usage](https://github.com/semi-technologies/weaviate/blob/master/tools/dev/grafana/dashboards/usage.json) | Obtain usage metrics, such as number of objects imported, etc.| ![Usage](/img/weaviate-sample-dashboard-usage.png "Usage") |
+| [Usage](https://github.com/semi-technologies/weaviate/blob/master/tools/dev/grafana/dashboards/usage.json) | Obtain usage metrics, such as number of objects imported, etc.| ![Usage](/img/weaviate-sample-dashboard-usage.png "Usage") | -->
 
 # More Resources
 

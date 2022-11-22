@@ -1,17 +1,19 @@
 ---
-layout: layout-documentation
-solution: weaviate
-sub-menu: Configuration
 title: Configuration
-description: Configuration overview
-tags: ['configuration']
-sidebar_position: 0
-open-graph-type: article
-toc: false
-redirect_from:
-    - /documentation/weaviate/current/configuration/index.html
-    - /documentation/weaviate/current/configuration/
-    - /documentation/weaviate/current/setup/health_check.html
+sidebar_position: 1
+# layout: layout-documentation
+# solution: weaviate
+# sub-menu: Configuration
+# title: Configuration
+# description: Configuration overview
+# tags: ['configuration']
+# sidebar_position: 0
+# open-graph-type: article
+# toc: false
+# redirect_from:
+#     - /documentation/weaviate/current/configuration/index.html
+#     - /documentation/weaviate/current/configuration/
+#     - /documentation/weaviate/current/setup/health_check.html
 ---
 
 When setting up a Weaviate instance, by default, it will by default:
