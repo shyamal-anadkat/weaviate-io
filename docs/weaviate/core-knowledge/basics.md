@@ -1,7 +1,6 @@
 ---
 title: Basics
 sidebar_position: 1
-
 # layout: layout-documentation
 # solution: weaviate
 # sub-menu: Core Knowledge
