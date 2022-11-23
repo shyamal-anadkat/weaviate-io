@@ -1,14 +1,16 @@
 ---
-layout: layout-documentation
-solution: weaviate
-sub-menu: Modules
-nav-parent: Modules
 title: Modules
-description: Weaviate Modules
-tags: ['Modules']
-sidebar_position: 0
-open-graph-type: article
-toc: true
+sidebar_position: 5
+# layout: layout-documentation
+# solution: weaviate
+# sub-menu: Modules
+# nav-parent: Modules
+# title: Modules
+# description: Weaviate Modules
+# tags: ['Modules']
+# sidebar_position: 0
+# open-graph-type: article
+# toc: true
 ---
 
 # Introduction

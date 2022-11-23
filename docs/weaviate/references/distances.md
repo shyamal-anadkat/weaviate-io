@@ -1,6 +1,6 @@
 ---
 title: Distance metrics
-sidebar_position: 3
+sidebar_position: 23
 # layout: layout-documentation
 # solution: weaviate
 # sub-menu: Vector Index (ANN) Plugins

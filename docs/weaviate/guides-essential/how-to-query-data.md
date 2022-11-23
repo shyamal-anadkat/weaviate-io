@@ -1,5 +1,5 @@
 ---
-title: Data query
+title: Scalar Search
 sidebar_position: 3
 # layout: layout-documentation
 # solution: weaviate

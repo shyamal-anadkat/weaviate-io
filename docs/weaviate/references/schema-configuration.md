@@ -1,6 +1,6 @@
 ---
 title: Schema configuration
-sidebar_position: 1
+sidebar_position: 21
 # layout: layout-documentation
 # solution: weaviate
 # sub-menu: Schema

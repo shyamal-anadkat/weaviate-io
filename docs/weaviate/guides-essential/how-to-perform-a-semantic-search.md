@@ -1,5 +1,5 @@
 ---
-title: Data query (semantic search)
+title: Vector/Semantic Search
 sidebar_position: 4
 # layout: layout-documentation
 # solution: weaviate
