@@ -1,4 +1,4 @@
 ---
-title: Vectorizers compared
+title: (NEW) Vectorizers compared
 sidebar_position: 2
 ---

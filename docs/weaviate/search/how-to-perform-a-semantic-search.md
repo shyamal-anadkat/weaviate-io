@@ -1,6 +1,6 @@
 ---
 title: Vector/Semantic Search
-sidebar_position: 4
+sidebar_position: 2
 # layout: layout-documentation
 # solution: weaviate
 # sub-menu: Tutorials

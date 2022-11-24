@@ -4,4 +4,4 @@ sidebar_position: 0
 
 ---
 
-In this section, you will learn about what we consider best practices in terms of its core capabilities
+A bunch of guides on how to do stuff in Weaviate

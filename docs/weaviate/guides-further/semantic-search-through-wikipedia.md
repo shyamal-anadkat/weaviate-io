@@ -1,14 +1,16 @@
 ---
-layout: layout-documentation
-solution: weaviate
-sub-menu: Tutorials
-title: Semantic search through Wikipedia
-intro: 
-description: Semantic search through Wikipedia with Weaviate
-tags: ['semantic search', 'wikipedia']
+title: Semantic search with Wikipedia
 sidebar_position: 2
-open-graph-type: article
-toc: true
+# layout: layout-documentation
+# solution: weaviate
+# sub-menu: Tutorials
+# title: Semantic search through Wikipedia
+# intro: 
+# description: Semantic search through Wikipedia with Weaviate
+# tags: ['semantic search', 'wikipedia']
+# sidebar_position: 2
+# open-graph-type: article
+# toc: true
 ---
 
 In this tutorial, we imported the complete English language Wikipedia article dataset into a single Weaviate instance to conduct semantic search queries through the Wikipedia articles, besides this, we've made all the graph relations between the articles too. We have made the import scripts, pre-processed articles, and backup available so that you can run the complete setup yourself. 

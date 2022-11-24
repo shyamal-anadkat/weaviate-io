@@ -1,20 +1,22 @@
 ---
-layout: layout-documentation
-solution: weaviate
-sub-menu: Tutorials
-title: Example datasets
-intro: 
-description: Example datasets
-tags: ['example datasets']
-sidebar_position: 10
-open-graph-type: article
-toc: true
-redirect_from:
-    - /developers/weaviate/v1.14.1/more-resources/example-datasets.html
-    - /documentation/weaviate/current/datasets/newspublications.html
-    - /documentation/weaviate/current/getting-started/example-datasets.html
-    - /developers/weaviate/current/getting-started/example-datasets.html
-    - /developers/weaviate/current/more-resources/example-datasets.html
+title: Example Datasets
+sidebar_position: 9
+# layout: layout-documentation
+# solution: weaviate
+# sub-menu: Tutorials
+# title: Example datasets
+# intro: 
+# description: Example datasets
+# tags: ['example datasets']
+# sidebar_position: 10
+# open-graph-type: article
+# toc: true
+# redirect_from:
+#     - /developers/weaviate/v1.14.1/more-resources/example-datasets.html
+#     - /documentation/weaviate/current/datasets/newspublications.html
+#     - /documentation/weaviate/current/getting-started/example-datasets.html
+#     - /developers/weaviate/current/getting-started/example-datasets.html
+#     - /developers/weaviate/current/more-resources/example-datasets.html
 ---
 
 There are a few example datasets available.

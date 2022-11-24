@@ -1,5 +1,5 @@
 ---
-title: Index types and performance
+title: (MAYBE MOVE) Index types and performance
 sidebar_position: 7
 # layout: layout-documentation
 # bodyclass: ["page--guides", " "]

@@ -1,6 +1,6 @@
 ---
-title: Text2Vec-contextionary Quickstart
-sidebar_position: 9
+title: Text2Vec-Contextionary Quickstart
+sidebar_position: 7
 # layout: layout-documentation
 # solution: weaviate
 # sub-menu: Tutorials
